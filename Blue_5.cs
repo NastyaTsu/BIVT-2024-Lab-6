@@ -58,7 +58,7 @@ namespace Lab_6
 
             // свойства
             public string Name => _name;
-            private Sportsman[] Sportsmen;
+            private Sportsman[] Sportsmen => _sportsmen;
             
 
             public int SummaryScore
