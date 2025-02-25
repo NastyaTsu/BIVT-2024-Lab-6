@@ -58,7 +58,7 @@ namespace Lab_6
 
             // свойства
             public string Name => _name;
-            private Sportsman[] Sportsmen => _sportsmen;
+            public Sportsman[] Sportsmen => _sportsmen;
             
 
             public int SummaryScore
@@ -78,7 +78,7 @@ namespace Lab_6
             {
                 get
                 {
-                    int topPlace = int.MaxValue;
+                    int topPlace = 18;
                     for (int i = 0; i < _count; i++)
                     {
                         if (_sportsmen[i].Place < topPlace)
@@ -95,7 +95,7 @@ namespace Lab_6
             public Team(string name)
             {
                 _name = name;
-                _sportsmen = new Sportsman[6];
+                _sportsmen = new Sportsman[0];
                 _count = 0;
             }
 
