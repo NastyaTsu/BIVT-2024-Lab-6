@@ -95,7 +95,7 @@ namespace Lab_6
             public Team(string name)
             {
                 _name = name;
-                _sportsmen = new Sportsman[0];
+                _sportsmen = new Sportsman[6];
                 _count = 0;
             }
 
