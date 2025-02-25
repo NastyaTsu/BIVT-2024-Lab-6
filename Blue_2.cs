@@ -64,7 +64,7 @@ namespace Lab_6
             // методы 
             public void Jump(int[] result)
             {
-                if (result == null || result.Length != 5) return;
+                if (result == null) return;
                 if (_marks == null) return;
 
                 int nojump = Array.FindIndex(_jumped, jump => !jump); // находим первый неоценённый прыжок
