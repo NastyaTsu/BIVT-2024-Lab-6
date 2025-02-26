@@ -28,7 +28,7 @@ namespace Lab_6
             {
                 _name = name;
                 _surname = surname; 
-                _place = 18;
+                _place = 0;
                 _placeSet = false;
             }
 
@@ -95,12 +95,16 @@ namespace Lab_6
             public Team(string name)
             {
                 _name = name;
-                _sportsmen = new Sportsman[0];
+                _sportsmen = new Sportsman[6];
                 _count = 0;
             }
 
             public void Add(Sportsman sportsman)
             {
+                if (_sportsmen == null)
+                {
+                    _sportsmen = new Sportsman[6];
+                }
                 if (_count < _sportsmen.Length)
                 {
                     _sportsmen[_count] = sportsman;
