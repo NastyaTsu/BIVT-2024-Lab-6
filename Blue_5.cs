@@ -61,7 +61,7 @@ namespace Lab_6
             public Sportsman[] Sportsmen => _sportsmen;
             
 
-            public int SummaryScore
+            public int SummaryScore //  возвращает количество баллов, набранных командой в зависимости от мест, занятых её участниками
             {
                 get
                 {
@@ -74,10 +74,13 @@ namespace Lab_6
                     return _sportsmen.Sum(s => (s.Place >= 1 && s.Place <= 5) ? scores[s.Place] : 0);
                 }
             }
-            public int TopPlace
+            public int TopPlace // выводит наивысшее место, которое занял кто-то из членов команды. 
+
             {
                 get
                 {
+                    if (_sportsmen == null || _sportsmen.Length == 0) return 0;
+
                     int topPlace = 18;
                     for (int i = 0; i < _count; i++)
                     {
@@ -101,10 +104,8 @@ namespace Lab_6
 
             public void Add(Sportsman sportsman)
             {
-                if (_sportsmen == null)
-                {
-                    _sportsmen = new Sportsman[6];
-                }
+                if (_sportsmen == null) return;
+
                 if (_count < _sportsmen.Length)
                 {
                     _sportsmen[_count] = sportsman;
@@ -131,13 +132,13 @@ namespace Lab_6
                 {
                     for (int j = 0; j < teams.Length - i - 1; j++)
                     {
-                        if (teams[j].SummaryScore > teams[j + 1].SummaryScore)
+                        if (teams[j].SummaryScore < teams[j + 1].SummaryScore)
                         {
                             (teams[j], teams[j + 1]) = (teams[j + 1], teams[j]);
                         }
                         else if (teams[j].TopPlace > teams[j + 1].TopPlace && teams[j].SummaryScore == teams[j + 1].SummaryScore)
                         {
-                            (teams[j], teams[j + 1]) = (teams[j], teams[j + 1]);
+                            (teams[j], teams[j + 1]) = (teams[j + 1], teams[j]);
                         }
                     }
                 }
